@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Account Balance</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#12003b;
+    color:white;
+}
+
+.header{
+    background:#5b1fd1;
+    padding:25px;
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.container{
+    padding:20px;
+}
+
+.balance-card{
+    background:#1f1f1f;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.balance-title{
+    color:#ccc;
+    font-size:18px;
+}
+
+.balance{
+    font-size:45px;
+    color:#00ff99;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.account-box{
+    background:#1f1f1f;
+    padding:20px;
+    border-radius:15px;
+}
+
+select{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    margin-top:10px;
+}
+
+.info{
+    margin-top:20px;
+    line-height:1.8;
+}
+
+.btn{
+    display:block;
+    width:220px;
+    margin:30px auto;
+    text-align:center;
+    background:#7b2cff;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    ₹ Account Balance
+</div>
+
+<div class="container">
+
+    <div class="balance-card">
+
+        <div class="balance-title">
+            Available Balance
+        </div>
+
+        <div class="balance" id="balance">
+            ₹25,000
+        </div>
+
+    </div>
+
+    <div class="account-box">
+
+        <h3>Switch Account</h3>
+
+        <select onchange="switchAccount(this.value)">
+            <option value="0">Savings Account</option>
+            <option value="1">Salary Account</option>
+            <option value="2">Business Account</option>
+        </select>
+
+        <div class="info">
+            <p><strong>Account Number:</strong> <span id="accNo">XXXX1234</span></p>
+            <p><strong>Bank:</strong> <span id="bank">Silver Bank</span></p>
+            <p><strong>Account Type:</strong> <span id="type">Savings</span></p>
+        </div>
+
+    </div>
+
+</div>
+
+<a href="home .html" class="btn">
+    ⬅ Back to Home
+</a>
+
+<script>
+
+const accounts = [
+
+{
+    balance:"₹25,000",
+    accNo:"XXXX1234",
+    bank:"Silver Bank",
+    type:"Savings"
+},
+
+{
+    balance:"₹78,500",
+    accNo:"XXXX5678",
+    bank:"Silver Bank",
+    type:"Salary"
+},
+
+{
+    balance:"₹1,45,000",
+    accNo:"XXXX9876",
+    bank:"Silver Bank",
+    type:"Business"
+}
+
+];
+
+function switchAccount(index){
+
+    document.getElementById("balance").innerHTML =
+        accounts[index].balance;
+
+    document.getElementById("accNo").innerHTML =
+        accounts[index].accNo;
+
+    document.getElementById("bank").innerHTML =
+        accounts[index].bank;
+
+    document.getElementById("type").innerHTML =
+        accounts[index].type;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rewards & Cashback</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#12003b;
+    color:white;
+}
+
+.header{
+    background:#5b1fd1;
+    padding:25px;
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.wallet-card{
+    width:85%;
+    max-width:500px;
+    margin:20px auto;
+    background:#1f1f1f;
+    padding:25px;
+    border-radius:20px;
+}
+
+.balance{
+    font-size:40px;
+    color:#00ff99;
+    text-align:center;
+    font-weight:bold;
+}
+
+.reward-btn{
+    width:100%;
+    padding:15px;
+    margin-top:20px;
+    border:none;
+    background:#7b2cff;
+    color:white;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.reward-card{
+    background:#2a2a2a;
+    margin-top:15px;
+    padding:15px;
+    border-radius:12px;
+}
+
+.brand{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.offer{
+    color:#00ff99;
+    margin-top:5px;
+}
+
+.cashback{
+    color:gold;
+    margin-top:5px;
+}
+
+.btn{
+    display:block;
+    width:200px;
+    margin:25px auto;
+    text-align:center;
+    background:#7b2cff;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+🎁 Rewards & Cashback
+</div>
+
+<div class="wallet-card">
+
+    <h3>Available Balance</h3>
+
+    <div class="balance">
+        ₹12,500
+    </div>
+
+    <button class="reward-btn" onclick="loadRewards()">
+        View Rewards & Vouchers
+    </button>
+
+    <div id="rewards"></div>
+
+</div>
+
+<a href="home .html" class="btn">
+⬅ Back to Home
+</a>
+
+<script>
+
+function loadRewards(){
+
+    // Replace this with your API response later
+    const rewards = [
+
+        {
+            brand:"Amazon",
+            voucher:"₹200 Gift Voucher",
+            cashback:"5% Cashback"
+        },
+
+        {
+            brand:"Flipkart",
+            voucher:"₹500 Discount Voucher",
+            cashback:"10% Cashback"
+        },
+
+        {
+            brand:"Myntra",
+            voucher:"20% OFF Coupon",
+            cashback:"₹100 Cashback"
+        },
+
+        {
+            brand:"Swiggy",
+            voucher:"Free Delivery Voucher",
+            cashback:"15% Cashback"
+        }
+
+    ];
+
+    let output = "";
+
+    rewards.forEach(item => {
+
+        output += `
+        <div class="reward-card">
+
+            <div class="brand">
+                ${item.brand}
+            </div>
+
+            <div class="offer">
+                🎟 ${item.voucher}
+            </div>
+
+            <div class="cashback">
+                💰 ${item.cashback}
+            </div>
+
+        </div>
+        `;
+    });
+
+    document.getElementById("rewards").innerHTML = output;
+}
+
+</script>
+
+</body>
+</html>
